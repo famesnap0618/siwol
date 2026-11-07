@@ -284,14 +284,26 @@ window.addEventListener('popstate', () => {
   window.scrollTo({ top: 0 });
 });
 
+// 목업(결과 페이지 ver3)과 같은 예시 점수
+const SAMPLE = 'result.html?r=m&d=20261021&s=24-31-40-30-38-28-37-22';
+
 (async function init() {
   const params = new URLSearchParams(location.search);
   try {
     me = decodePerson(params);
     partner = decodePerson(params, 'p');
     if (!me) throw new Error('empty');
-  } catch {
-    app.innerHTML = `<div class="error-box"><h2>결과를 불러올 수 없습니다</h2><p class="small">링크가 잘렸거나 잘못된 것 같아요. 다시 확인해 보세요.</p><a class="btn" href="index.html" style="margin-top:16px">검사하러 가기</a></div>`;
+  } catch (e) {
+    // 점수 없이 열었을 때(예: result.html 을 직접 연 경우)는 안내 + 예시 결과 링크
+    const empty = !location.search || e.message === 'empty';
+    app.innerHTML = `<div class="error-box">
+      <h2>${empty ? '아직 검사 결과가 없어요' : '결과를 불러올 수 없습니다'}</h2>
+      <p class="small">${empty ? '결과 페이지는 검사를 마치면 자동으로 열립니다. 검사부터 시작해 주세요.' : '링크가 잘렸거나 잘못된 것 같아요. 다시 확인해 보세요.'}</p>
+      <div style="display:grid;gap:10px;margin-top:18px">
+        <a class="btn" href="index.html">검사하러 가기</a>
+        <a class="btn outline" href="${SAMPLE}">예시 결과 보기</a>
+        <a class="btn outline" href="${SAMPLE}&pr=f&pd=20261022&ps=38-26-36-38-30-35-30-30&view=compare">예시 부부 비교 보기</a>
+      </div></div>`;
     return;
   }
   try {

@@ -32,7 +32,8 @@ function renderStart() {
       ${ROLES.map(r => `<button type="button" class="role" data-role="${r}" aria-pressed="${state.role === r}">${esc(c.roles[r])}</button>`).join('')}
     </div>
     <button type="button" class="btn btn-block" id="start" aria-disabled="${!state.role}">검사 시작하기 · ${esc(c.meta)}</button>
-    <p class="small" style="margin-top:16px">${esc(c.disclaimer)}</p>`;
+    <p class="small" style="margin-top:16px">${esc(c.disclaimer)}</p>
+    <p class="footnote"><a href="result.html?r=m&d=20261021&s=24-31-40-30-38-28-37-22">예시 결과 미리 보기</a></p>`;
 
   app.querySelectorAll('.role').forEach(b => b.addEventListener('click', () => {
     state.role = b.dataset.role; save(); renderStart();
