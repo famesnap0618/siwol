@@ -1,11 +1,11 @@
 (function () {
 // 시작 + 문항 화면
 const { loadAll, esc, toast } = globalThis.SiwolCommon;
-const { scoreAnswers, encodePerson, decodePerson, todayStamp, ROLES } = globalThis.SiwolScoring;
+const { decodePerson, ROLES } = globalThis.SiwolScoring;
 
 const KEY = 'siwol-test-v1';
 const app = document.getElementById('app');
-let D, state;
+let D, state, store;
 
 function save() { try { sessionStorage.setItem(KEY, JSON.stringify(state)); } catch { /* 저장 불가 환경 */ } }
 function restore() {
@@ -19,11 +19,15 @@ function pageItems(p) { const n = D.config.questionsPerPage; return D.items.item
 function renderStart() {
   const c = D.copy.start;
   const invited = !!state.invite;
+  // 서버 모드이고 초대 링크·재검사가 아닐 때만 가족 코드 입력란을 보여준다
+  const showCode = store.remote && !invited && !state.prevToken;
   app.innerHTML = `
     <div class="eyebrow">${esc(D.copy.brand)}</div>
     <h1>${esc(c.title)}</h1>
     <div class="meta">${esc(c.subtitle)}</div>
+    ${state.inviteError ? `<div class="banner warn">${esc(state.inviteError)}</div>` : ''}
     ${invited ? `<div class="banner">${esc(c.invited)}</div>` : ''}
+    ${state.prevToken ? `<div class="banner">${esc(c.retest)}</div>` : ''}
     <div class="notes">
       ${c.notes.map((n, i) => `<div class="note"><b>${i === 0 ? '하나' : '둘'}, ${esc(n.title)}</b><p>${esc(n.body)}</p></div>`).join('')}
     </div>
@@ -31,6 +35,12 @@ function renderStart() {
     <div class="roles" role="group" aria-label="${esc(c.rolePrompt)}">
       ${ROLES.map(r => `<button type="button" class="role" data-role="${r}" aria-pressed="${state.role === r}">${esc(c.roles[r])}</button>`).join('')}
     </div>
+    ${showCode ? `
+    <details class="code-box" ${state.code ? 'open' : ''}>
+      <summary>${esc(c.codePrompt)}</summary>
+      <p class="small">${esc(c.codeHelp)}</p>
+      <input id="code" class="input" inputmode="text" autocomplete="off" maxlength="9" placeholder="예: KJ-4821" value="${esc(state.code || '')}">
+    </details>` : ''}
     <button type="button" class="btn btn-block" id="start" aria-disabled="${!state.role}">검사 시작하기 · ${esc(c.meta)}</button>
     <p class="small" style="margin-top:16px">${esc(c.disclaimer)}</p>
     <p class="footnote"><a href="result.html?r=m&d=20261021&s=24-31-40-30-38-28-37-22">예시 결과 미리 보기</a></p>`;
@@ -38,8 +48,16 @@ function renderStart() {
   app.querySelectorAll('.role').forEach(b => b.addEventListener('click', () => {
     state.role = b.dataset.role; save(); renderStart();
   }));
-  app.querySelector('#start').addEventListener('click', () => {
+  app.querySelector('#code')?.addEventListener('input', e => { state.code = e.target.value.trim(); save(); });
+  app.querySelector('#start').addEventListener('click', async () => {
     if (!state.role) { toast('누가 검사하시는지 먼저 골라주세요.'); return; }
+    // 가족 코드를 입력했다면 시작 전에 합류 가능한지 확인
+    if (showCode && state.code) {
+      try {
+        const chk = await store.checkFamily({ code: state.code });
+        if (!chk.ok) { toast(new store.StoreError(chk.reason).message); return; }
+      } catch (e) { toast(e.message); return; }
+    }
     goPage(state.page ?? 0, true);
   });
 }
@@ -101,7 +119,7 @@ function renderPage() {
   app.querySelector('#prev').addEventListener('click', () => history.back());
   app.querySelector('#restart').addEventListener('click', () => {
     if (confirm('처음으로 돌아가면 지금까지의 응답이 모두 지워집니다. 계속할까요?')) {
-      state = { role: null, answers: {}, page: null, invite: state.invite };
+      state = { role: null, answers: {}, page: null, invite: state.invite, prevToken: state.prevToken, code: state.code };
       save(); history.pushState({}, '', location.pathname + location.search); renderStart();
     }
   });
@@ -114,17 +132,25 @@ function renderPage() {
       return;
     }
     if (!last) { goPage(p + 1, true); return; }
-    finish();
+    finish(app.querySelector('#next'));
   });
 }
 
-function finish() {
-  const scores = scoreAnswers(D.items.items, state.answers);
-  const me = { role: state.role, date: todayStamp(), scores };
-  let qs = encodePerson(me);
-  if (state.invite) qs += '&' + encodePerson(state.invite, 'p');
-  try { sessionStorage.removeItem(KEY); } catch { /* noop */ }
-  location.href = `result.html?${qs}`;
+async function finish(btn) {
+  if (btn.dataset.busy) return;
+  btn.dataset.busy = '1'; btn.textContent = '결과를 만드는 중…';
+  try {
+    const url = await store.submit({
+      role: state.role, answers: state.answers, items: D.items.items,
+      invite: state.invite, code: state.code, prevToken: state.prevToken, itemsVersion: D.items.version,
+    });
+    try { sessionStorage.removeItem(KEY); } catch { /* noop */ }
+    location.href = url;
+  } catch (e) {
+    console.error(e);
+    toast(e.message || '잠시 후 다시 시도해 주세요.');
+    delete btn.dataset.busy; btn.textContent = '결과 보기';
+  }
 }
 
 window.addEventListener('popstate', () => {
@@ -140,15 +166,30 @@ window.addEventListener('popstate', () => {
     app.innerHTML = `<div class="error-box"><h2>검사를 불러오지 못했어요</h2><p class="small">잠시 후 다시 시도해 주세요.</p></div>`;
     console.error(e); return;
   }
-  // 배우자 초대 링크: ?ir=m&id=20261021&is=...
+  store = globalThis.SiwolStore.createStore(D.config);
   const params = new URLSearchParams(location.search);
-  let invite = null;
-  try { invite = decodePerson(params, 'i'); } catch { invite = null; }
 
   state = restore() || { role: null, answers: {}, page: null, invite: null };
-  if (invite) state.invite = invite;
-  // 배우자가 엄마면 아빠를 기본 선택 (바꿀 수 있음)
-  if (invite && !state.role) state.role = invite.role === 'm' ? 'f' : invite.role === 'f' ? 'm' : null;
+  state.inviteError = null;
+
+  // 배우자 초대 링크 — 서버: ?inv=초대토큰 / URL 방식: ?ir=m&id=20261021&is=...
+  let firstRole = null;
+  if (params.get('inv')) {
+    try {
+      const chk = await store.checkFamily({ invite: params.get('inv') });
+      if (chk.ok) { state.invite = { token: params.get('inv') }; firstRole = chk.firstRole; }
+      else { state.invite = null; state.inviteError = new store.StoreError(chk.reason === 'server_off' ? 'family_not_found' : chk.reason).message; }
+    } catch (e) { state.inviteError = e.message; }
+  } else {
+    let person = null;
+    try { person = decodePerson(params, 'i'); } catch { person = null; }
+    if (person) { state.invite = { person }; firstRole = person.role; }
+  }
+  // 재검사: ?prev=이전 결과 토큰
+  if (params.get('prev') && store.remote) state.prevToken = params.get('prev');
+
+  // 먼저 한 사람이 엄마면 아빠를 기본 선택 (바꿀 수 있음)
+  if (firstRole && !state.role) state.role = firstRole === 'm' ? 'f' : firstRole === 'f' ? 'm' : null;
   save();
 
   const m = /^#p(\d+)$/.exec(location.hash);

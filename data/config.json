@@ -1,5 +1,9 @@
 {
  "_comment": "코드 수정 없이 바꿀 수 있는 설정값. 빈 문자열이면 해당 버튼은 '준비 중' 안내로 동작합니다.",
+ "_server": "supabaseUrl 과 supabaseAnonKey(공개 키)를 넣으면 서버 저장 방식(가족 코드·알림)으로 바뀝니다. 비우면 URL 방식. 수정 후 npm run data.",
+ "supabaseUrl": "",
+ "supabaseAnonKey": "",
+ "privacyUrl": "",
  "siteUrl": "",
  "notifyUrl": "",
  "bookUrl": "",

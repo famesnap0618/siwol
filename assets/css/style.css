@@ -196,3 +196,20 @@ table.diff .d { font-weight: 800; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 @media (min-width: 560px) { .wrap { padding-top: 40px; } }
+
+/* ---------- 서버 모드: 가족 코드 · 알림 신청 ---------- */
+.input { width: 100%; min-height: 48px; border: 1.5px solid var(--line); border-radius: 12px; padding: 0 14px; background: #fff; font-size: 16px; }
+.input:focus { outline: none; border-color: var(--accent); }
+.banner.warn { background: #fdebe3; color: var(--accent-ink); }
+.code-box { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin: 0 0 14px; }
+.code-box summary { cursor: pointer; font-weight: 700; font-size: 15px; }
+.code-box p { margin: 8px 0; }
+.locked .family { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.locked .family .code { font-size: 22px; font-weight: 800; letter-spacing: .06em; white-space: nowrap; }
+.locked .family .btn { min-height: 44px; font-size: 14px; padding: 0 14px; white-space: nowrap; }
+.sub-form { margin-top: 14px; display: grid; gap: 8px; }
+.sub-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.sub-row .btn { min-height: 48px; }
+.consent { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--muted); line-height: 1.5; }
+.consent input { margin-top: 3px; flex: none; }
+.book .sub-form label, .book .consent { color: rgba(255,255,255,.75); }

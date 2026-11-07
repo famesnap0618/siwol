@@ -26,6 +26,22 @@ npm run data
 npm test
 ```
 
+## 서버 모드 (가족 코드 · 부부 연결 · 알림)
+
+설계는 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). `data/config.json`에 Supabase 주소와 공개 키를 넣으면 서버 모드로 바뀌고, 비어 있으면 URL 방식으로 동작합니다.
+
+Supabase 없이 내 컴퓨터에서 서버 모드를 시험하려면:
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+→ http://localhost:5174
+
 ## 구조
 
 ```

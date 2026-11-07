@@ -7,6 +7,10 @@
   "scripts": {
     "data": "node scripts/build-data.mjs",
     "test": "node scripts/build-data.mjs && node --test tests/",
-    "start": "npx --yes serve@14.2.4 -l 5173 ."
+    "start": "npx --yes serve@14.2.4 -l 5173 .",
+    "dev": "node scripts/build-data.mjs && node scripts/dev-server.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.2.17"
   }
 }

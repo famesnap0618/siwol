@@ -1,11 +1,11 @@
 (function () {
 // 결과 페이지 (본 결과 + 부부 비교)
-const { loadAll, esc, fill, fmtDate, siteURL, shareLink, copyText, toast, ICON } = globalThis.SiwolCommon;
-const { evaluate, interpret, compareCouple, decodePerson, encodePerson, idealRange } = globalThis.SiwolScoring;
+const { loadAll, esc, fill, fmtDate, shareLink, copyText, toast, ICON } = globalThis.SiwolCommon;
+const { evaluate, interpret, compareCouple, idealRange } = globalThis.SiwolScoring;
 const { radarSVG } = globalThis.SiwolRadar;
 
 const app = document.getElementById('app');
-let D, me, partner, evMe, evPartner;
+let D, me, partner, evMe, evPartner, data, store;
 
 const roleName = (p, other) => {
   const n = D.copy.start.roles[p.role];
@@ -110,8 +110,15 @@ function renderCoupleSlot() {
       <div class="card locked">
         <div class="top"><span>${esc(R.lockedTitle)}</span><span class="lock">${ICON.lock} ${esc(R.lockedBadge)}</span></div>
         <div class="body">${miniRadarIcon()}<p>${R.lockedBody}</p></div>
+        ${data.mode === 'remote' ? `
+        <div class="box family">
+          <div><div class="small">우리 가족 코드</div><div class="code">${esc(data.familyCode)}</div></div>
+          ${data.inviteToken ? `<button type="button" class="btn blue" data-act="invite">배우자에게 링크 보내기</button>` : ''}
+        </div>
+        ${subscribeForm('partner_done', R.partnerDoneLabel)}
+        <p class="small" style="margin-top:10px">${esc(R.lockedNoteRemote)}</p>` : `
         <button type="button" class="btn blue btn-block" data-act="invite">배우자에게 링크 보내기</button>
-        <p class="small" style="margin-top:10px">${esc(R.lockedNote)}</p>
+        <p class="small" style="margin-top:10px">${esc(R.lockedNote)}</p>`}
       </div>`;
   }
   const { gap } = compareCouple(evMe, evPartner);
@@ -128,13 +135,15 @@ function renderCoupleSlot() {
 function renderMain() {
   const R = D.copy.result;
   const series = [{ scores: me.scores, bands: evMe.rows.map(r => r.band) }];
+  const prev = data.previous;
+  if (prev) series.push({ scores: prev.scores, color: '#a99f94', dashed: true });
   app.innerHTML = `
     <div class="eyebrow">${esc(D.copy.brand)}</div>
     <h1>${esc(R.title)}</h1>
     <div class="meta">${fmtDate(me.date)} · ${esc(D.copy.start.roles[me.role])}</div>
 
     <div class="radar-wrap">${radarSVG({ areas: D.areas.areas, series, scoreLabels: true })}</div>
-    <div class="legend"><span><i class="lg-band"></i>적정 범위</span><span><i class="lg-dot"></i>둘러볼 영역</span><span><i class="lg-dot hollow"></i>적정</span></div>
+    <div class="legend"><span><i class="lg-band"></i>적정 범위</span><span><i class="lg-dot"></i>둘러볼 영역</span><span><i class="lg-dot hollow"></i>적정</span>${prev ? `<span><i class="lg-line dash" style="border-color:#a99f94"></i>지난 검사 ${fmtDate(prev.date, false)}</span>` : ''}</div>
 
     <div class="card summary">
       <h2>${esc(fill(R.summary, { n: evMe.idealCount, m: evMe.outCount }))}</h2>
@@ -164,9 +173,10 @@ function renderMain() {
         <button type="button" class="btn" data-act="notify">출간 알림 받기</button>
         <button type="button" class="btn ghost-dark" data-act="save">결과 저장</button>
       </div>
+      <div id="book-form" class="hidden" style="margin-top:14px">${subscribeForm('book_release', R.notify)}</div>
     </div>
     <p class="footnote">${esc(R.retest)}</p>
-    <p class="footnote"><a href="index.html">검사 다시 하기</a></p>`;
+    <p class="footnote"><a href="${esc(store.retestURL(data))}">검사 다시 하기</a></p>`;
 }
 
 // ---------- 부부 비교 ----------
@@ -206,7 +216,7 @@ function renderCompare() {
       </table>
     </div>
     <p class="footnote">${esc(P.tableNote)}</p>
-    <button type="button" class="btn blue btn-block" style="margin-top:16px" data-act="sendback">${esc(P.sendBack)}</button>`;
+    ${data.mode === 'url' ? `<button type="button" class="btn blue btn-block" style="margin-top:16px" data-act="sendback">${esc(P.sendBack)}</button>` : ''}`;
 }
 
 // ---------- 이미지 저장 ----------
@@ -244,27 +254,51 @@ async function saveImage() {
 }
 
 // ---------- 동작 ----------
-function resultURL(a, b) { return siteURL(D.config, `result.html?${encodePerson(a)}${b ? '&' + encodePerson(b, 'p') : ''}`); }
+function subscribeForm(purpose, label) {
+  if (data.mode !== 'remote') return '';
+  return `
+    <div class="sub-form" data-purpose="${purpose}">
+      <label class="small" for="em-${purpose}">${esc(label)}</label>
+      <div class="sub-row"><input id="em-${purpose}" class="input" type="email" inputmode="email" autocomplete="email" placeholder="이메일 주소">
+      <button type="button" class="btn" data-act="subscribe">신청</button></div>
+      <label class="consent"><input type="checkbox"> ${esc(D.copy.result.consent)}${D.config.privacyUrl ? ` <a href="${esc(D.config.privacyUrl)}" target="_blank" rel="noopener">자세히</a>` : ''}</label>
+    </div>`;
+}
 
-async function act(name) {
+async function doSubscribe(btn) {
+  const box = btn.closest('.sub-form');
+  const email = box.querySelector('input[type=email]').value.trim();
+  if (!box.querySelector('input[type=checkbox]').checked) { toast(new store.StoreError('consent_required').message); return; }
+  if (!email) { toast('이메일 주소를 입력해 주세요.'); return; }
+  btn.disabled = true;
+  try {
+    await store.subscribe(data.token, box.dataset.purpose, 'email', email);
+    box.innerHTML = `<p class="small" style="margin:0">신청했어요. ${box.dataset.purpose === 'partner_done' ? '배우자가 검사를 마치면' : '책이 나오면'} 이메일로 알려드릴게요.</p>`;
+  } catch (e) { toast(e.message); btn.disabled = false; }
+}
+
+async function act(name, btn) {
   const R = D.copy.result;
   switch (name) {
     case 'image': return saveImage();
     case 'invite': {
-      const url = siteURL(D.config, `index.html?${encodePerson(me, 'i')}`);
+      const url = store.inviteURL(data);
+      if (!url) { toast('이미 배우자가 합류했어요.'); return; }
       return shareLink({ title: '우리 집 양육 태도 지도 — 같이 해봐요', text: R.inviteShareText, url });
     }
     case 'compare': history.pushState({ v: 'compare' }, '', withView('compare')); renderCompare(); window.scrollTo({ top: 0 }); return;
     case 'main': history.back(); return;
-    case 'sendback': return shareLink({ title: '두 지도를 겹쳐 보기', text: '우리 둘의 양육 태도 지도를 겹쳐 봤어요.', url: resultURL(partner, me) + '&view=compare' });
+    case 'sendback': return shareLink({ title: '두 지도를 겹쳐 보기', text: '우리 둘의 양육 태도 지도를 겹쳐 봤어요.', url: store.resultURL(data, true) + '&view=compare' });
     case 'save': {
-      const ok = await copyText(resultURL(me, partner));
+      const ok = await copyText(store.resultURL(data));
       toast(ok ? '결과 링크를 복사했어요. 메모나 카카오톡 나에게 보내기에 저장해 두세요.' : '주소창의 링크를 저장해 두세요.');
       return;
     }
     case 'notify':
       if (D.config.notifyUrl) { window.open(D.config.notifyUrl, '_blank', 'noopener'); return; }
+      if (data.mode === 'remote') { document.getElementById('book-form').classList.remove('hidden'); return; }
       toast('출간 알림 신청은 곧 열립니다.'); return;
+    case 'subscribe': return doSubscribe(btn);
   }
 }
 
@@ -276,7 +310,7 @@ function withView(v) {
 
 app.addEventListener('click', e => {
   const b = e.target.closest('[data-act]');
-  if (b) { e.preventDefault(); act(b.dataset.act); }
+  if (b) { e.preventDefault(); act(b.dataset.act, b); }
 });
 window.addEventListener('popstate', () => {
   const v = new URLSearchParams(location.search).get('view');
@@ -290,12 +324,14 @@ const SAMPLE = 'result.html?r=m&d=20261021&s=24-31-40-30-38-28-37-22';
 (async function init() {
   const params = new URLSearchParams(location.search);
   try {
-    me = decodePerson(params);
-    partner = decodePerson(params, 'p');
-    if (!me) throw new Error('empty');
+    D = await loadAll(['areas', 'combos', 'couple', 'shapes', 'copy', 'config']);
+    store = globalThis.SiwolStore.createStore(D.config);
+    data = await store.load(params);
+    me = data.me; partner = data.partner;
   } catch (e) {
+    console.error(e);
     // 점수 없이 열었을 때(예: result.html 을 직접 연 경우)는 안내 + 예시 결과 링크
-    const empty = !location.search || e.message === 'empty';
+    const empty = !location.search || e.empty;
     app.innerHTML = `<div class="error-box">
       <h2>${empty ? '아직 검사 결과가 없어요' : '결과를 불러올 수 없습니다'}</h2>
       <p class="small">${empty ? '결과 페이지는 검사를 마치면 자동으로 열립니다. 검사부터 시작해 주세요.' : '링크가 잘렸거나 잘못된 것 같아요. 다시 확인해 보세요.'}</p>
@@ -304,13 +340,6 @@ const SAMPLE = 'result.html?r=m&d=20261021&s=24-31-40-30-38-28-37-22';
         <a class="btn outline" href="${SAMPLE}">예시 결과 보기</a>
         <a class="btn outline" href="${SAMPLE}&pr=f&pd=20261022&ps=38-26-36-38-30-35-30-30&view=compare">예시 부부 비교 보기</a>
       </div></div>`;
-    return;
-  }
-  try {
-    D = await loadAll(['areas', 'combos', 'couple', 'shapes', 'copy', 'config']);
-  } catch (e) {
-    console.error(e);
-    app.innerHTML = `<div class="error-box"><h2>결과를 불러오지 못했어요</h2><p class="small">잠시 후 다시 시도해 주세요.</p></div>`;
     return;
   }
   evMe = evaluate(D.areas.areas, me.scores);
