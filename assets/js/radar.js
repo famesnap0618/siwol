@@ -1,5 +1,6 @@
+(function () {
 // 8영역 방사형 지도 (SVG 문자열 생성)
-import { MIN, MAX, idealRange } from './scoring.js';
+const { MIN, MAX, idealRange } = globalThis.SiwolScoring;
 
 const C = { accent: '#ee7d2b', blue: '#3b6ea8', band: '#efdcc4', grid: '#d9cbb8', ink: '#2b2622', muted: '#6d655e', bg: '#ffffff' };
 
@@ -18,7 +19,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
  * @param {boolean} [o.scoreLabels] 라벨에 점수 표시 (1인 결과)
  * @param {number} [o.highlight] 강조할 영역 index (부부 비교의 가장 벌어진 영역)
  */
-export function radarSVG({ areas, series, scoreLabels = false, highlight = -1, size = 360, fontFamily = 'inherit' }) {
+function radarSVG({ areas, series, scoreLabels = false, highlight = -1, size = 360, fontFamily = 'inherit' }) {
   const W = size, H = size, cx = W / 2, cy = H / 2, R = size * 0.29;
   const n = areas.length;
   let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="8영역 양육 태도 지도" font-family="${esc(fontFamily)}">`;
@@ -75,3 +76,6 @@ export function radarSVG({ areas, series, scoreLabels = false, highlight = -1, s
   });
   return s + '</svg>';
 }
+
+globalThis.SiwolRadar = { radarSVG };
+})();

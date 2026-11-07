@@ -1,6 +1,7 @@
+(function () {
 // 시작 + 문항 화면
-import { loadAll, esc, toast } from './common.js';
-import { scoreAnswers, encodePerson, decodePerson, todayStamp, ROLES } from './scoring.js';
+const { loadAll, esc, toast } = globalThis.SiwolCommon;
+const { scoreAnswers, encodePerson, decodePerson, todayStamp, ROLES } = globalThis.SiwolScoring;
 
 const KEY = 'siwol-test-v1';
 const app = document.getElementById('app');
@@ -152,4 +153,6 @@ window.addEventListener('popstate', () => {
   const m = /^#p(\d+)$/.exec(location.hash);
   if (m && state.role && state.page != null) { state.page = Math.min(+m[1] - 1, pageCount() - 1); renderPage(); }
   else { history.replaceState({}, '', location.pathname + location.search); renderStart(); }
+})();
+
 })();

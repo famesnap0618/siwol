@@ -14,10 +14,12 @@
 
 ## 실행
 
-빌드 과정이 없는 정적 사이트입니다. `fetch`로 JSON을 읽으므로 파일을 직접 열지 말고 로컬 서버로 띄우세요.
+빌드 과정이 없는 정적 사이트입니다. **`index.html`을 더블클릭하면 검사지가 바로 열립니다** (서버 불필요). 검사를 마치면 자동으로 `result.html`(결과)로 넘어갑니다.
+
+문구를 고칠 때는 `data/*.json`을 수정한 뒤 아래 명령으로 `assets/js/data.js`를 다시 만들어야 화면에 반영됩니다.
 
 ```bash
-python -m http.server 5173
+npm run data
 ```
 
 ```bash
@@ -39,6 +41,8 @@ data/combos.json      조합 해석 112개
 data/couple.json      부부 차이 해석 24개
 data/shapes.json      전체 모양 규칙 4개
 data/copy.json        화면 공통 문구
+assets/js/data.js     data/*.json 묶음 (자동 생성 — npm run data)
+scripts/build-data.mjs  data.js 생성 스크립트
 data/config.json      외부 설정 (사이트 주소, 출간 알림 링크, 책 링크 등)
 tests/                채점 로직 단위 테스트
 ```

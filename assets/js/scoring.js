@@ -1,10 +1,11 @@
+(function () {
 // 채점·판정 로직 (DOM 의존 없음 — 브라우저와 node 테스트에서 함께 사용)
 
-export const AREA_KEYS = ['affection', 'reasoning', 'achievement', 'involvement', 'discipline', 'monitoring', 'implicit', 'consistency'];
-export const MIN = 10, MAX = 50;
+const AREA_KEYS = ['affection', 'reasoning', 'achievement', 'involvement', 'discipline', 'monitoring', 'implicit', 'consistency'];
+const MIN = 10, MAX = 50;
 
 /** 문항 응답 {q01: 1..5, ...} → 영역별 합계 배열(AREA_KEYS 순서) */
-export function scoreAnswers(items, answers) {
+function scoreAnswers(items, answers) {
   const sums = Object.fromEntries(AREA_KEYS.map(k => [k, 0]));
   for (const it of items) {
     const v = answers[it.id];
@@ -15,18 +16,18 @@ export function scoreAnswers(items, answers) {
 }
 
 /** 점수 → 'low' | 'ideal' | 'high' */
-export function band(area, score) {
+function band(area, score) {
   if (score <= area.cut.lowMax) return 'low';
   if (score >= area.cut.highMin) return 'high';
   return 'ideal';
 }
 
-export function idealRange(area) {
+function idealRange(area) {
   return [area.cut.lowMax + 1, area.cut.highMin - 1];
 }
 
 /** 적정 범위 경계에서 몇 점 벗어났는지 (적정이면 0) */
-export function distance(area, score) {
+function distance(area, score) {
   const [lo, hi] = idealRange(area);
   if (score < lo) return lo - score;
   if (score > hi) return score - hi;
@@ -34,7 +35,7 @@ export function distance(area, score) {
 }
 
 /** 한 사람의 점수 배열 → 영역별 판정 */
-export function evaluate(areas, scores) {
+function evaluate(areas, scores) {
   const rows = areas.map((a, i) => ({
     area: a, key: a.key, index: i, score: scores[i],
     band: band(a, scores[i]), distance: distance(a, scores[i]),
@@ -55,7 +56,7 @@ export function evaluate(areas, scores) {
  * 2) 우선순위 단계가 낮은(1이 가장 먼저) 것 → 두 영역의 이탈 거리 합이 큰 것 → 표 번호가 작은 것
  * 반환: { top, total } | null
  */
-export function pickCombo(ev, combos, { excludeConsistencyHigh = true } = {}) {
+function pickCombo(ev, combos, { excludeConsistencyHigh = true } = {}) {
   const dir = Object.fromEntries(ev.rows.map(r => [r.key, r.band]));
   const dist = Object.fromEntries(ev.rows.map(r => [r.key, r.distance]));
   const isExcluded = (k, d) => excludeConsistencyHigh && k === 'consistency' && d === 'high';
@@ -70,7 +71,7 @@ export function pickCombo(ev, combos, { excludeConsistencyHigh = true } = {}) {
 }
 
 /** 전체 모양 (A~D). 짝 카드와 별개로 '지도 전체로 보면' 보조 문구에 사용 */
-export function pickShape(ev) {
+function pickShape(ev) {
   if (ev.outCount === 0) return 'A';
   if (ev.highCount >= 4) return 'B';
   if (ev.lowCount >= 4) return 'C';
@@ -79,7 +80,7 @@ export function pickShape(ev) {
 }
 
 /** 짝도 모양도 없을 때 '먼저 볼 영역' — 가장 멀리 벗어난 영역 (동점이면 번호가 작은 쪽, 일관성↑는 후순위) */
-export function pickFocus(ev) {
+function pickFocus(ev) {
   const out = ev.rows.filter(r => r.band !== 'ideal');
   if (!out.length) return null;
   const weak = r => (r.area.highIsStrength && r.band === 'high') ? 1 : 0;
@@ -87,7 +88,7 @@ export function pickFocus(ev) {
 }
 
 /** 결과 영역 카드 전체를 한 번에 판단 */
-export function interpret(ev, combos, opts) {
+function interpret(ev, combos, opts) {
   const combo = pickCombo(ev, combos, opts);
   const shape = pickShape(ev);
   const focus = (!combo && !shape) ? pickFocus(ev) : null;
@@ -98,7 +99,7 @@ export function interpret(ev, combos, opts) {
  * 부부 비교: 밴드가 다른 영역 중 점수 차의 절댓값이 가장 큰 영역 1개 (동점이면 번호가 작은 쪽)
  * 패턴: 한쪽 높음·한쪽 적정 → A, 한쪽 낮음·한쪽 적정 → B, 한쪽 높음·한쪽 낮음 → C
  */
-export function compareCouple(evA, evB) {
+function compareCouple(evA, evB) {
   const rows = evA.rows.map((a, i) => {
     const b = evB.rows[i];
     return { area: a.area, key: a.key, index: i, a: a.score, b: b.score, bandA: a.band, bandB: b.band, diff: Math.abs(a.score - b.score) };
@@ -114,13 +115,13 @@ export function compareCouple(evA, evB) {
 
 // ---------- 결과 URL ----------
 // result.html?r=m&d=20261021&s=24-31-40-30-38-28-37-22[&pr=f&pd=20261022&ps=...]
-export const ROLES = ['m', 'f', 'o'];
+const ROLES = ['m', 'f', 'o'];
 
-export function encodePerson(p, prefix = '') {
+function encodePerson(p, prefix = '') {
   return `${prefix}r=${p.role}&${prefix}d=${p.date}&${prefix}s=${p.scores.join('-')}`;
 }
 
-export function decodePerson(params, prefix = '') {
+function decodePerson(params, prefix = '') {
   const role = params.get(prefix + 'r');
   const date = params.get(prefix + 'd');
   const s = params.get(prefix + 's');
@@ -132,6 +133,9 @@ export function decodePerson(params, prefix = '') {
   return { role, date, scores };
 }
 
-export function todayStamp(d = new Date()) {
+function todayStamp(d = new Date()) {
   return `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
 }
+
+globalThis.SiwolScoring = { AREA_KEYS, MIN, scoreAnswers, band, idealRange, distance, evaluate, pickCombo, pickShape, pickFocus, interpret, compareCouple, ROLES, encodePerson, decodePerson, todayStamp, MAX };
+})();

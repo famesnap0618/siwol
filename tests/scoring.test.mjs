@@ -2,10 +2,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import {
+import vm from 'node:vm';
+
+// scoring.js 는 브라우저 전역(SiwolScoring)으로 노출되는 일반 스크립트
+vm.runInThisContext(readFileSync(new URL('../assets/js/scoring.js', import.meta.url), 'utf8'));
+const {
   AREA_KEYS, scoreAnswers, band, distance, evaluate, pickCombo, pickShape, pickFocus,
   compareCouple, encodePerson, decodePerson,
-} from '../assets/js/scoring.js';
+} = globalThis.SiwolScoring;
 
 const load = f => JSON.parse(readFileSync(new URL(`../data/${f}`, import.meta.url), 'utf8'));
 const { areas } = load('areas.json');

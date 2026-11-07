@@ -5,7 +5,8 @@
   "description": "양육의 정석 · 부모 양육 태도 온라인 검사 (정적 웹)",
   "type": "module",
   "scripts": {
-    "test": "node --test tests/",
+    "data": "node scripts/build-data.mjs",
+    "test": "node scripts/build-data.mjs && node --test tests/",
     "start": "npx --yes serve@14.2.4 -l 5173 ."
   }
 }

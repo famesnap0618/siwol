@@ -1,7 +1,8 @@
+(function () {
 // 결과 페이지 (본 결과 + 부부 비교)
-import { loadAll, esc, fill, fmtDate, siteURL, shareLink, copyText, toast, ICON } from './common.js';
-import { evaluate, interpret, compareCouple, decodePerson, encodePerson, idealRange } from './scoring.js';
-import { radarSVG } from './radar.js';
+const { loadAll, esc, fill, fmtDate, siteURL, shareLink, copyText, toast, ICON } = globalThis.SiwolCommon;
+const { evaluate, interpret, compareCouple, decodePerson, encodePerson, idealRange } = globalThis.SiwolScoring;
+const { radarSVG } = globalThis.SiwolRadar;
 
 const app = document.getElementById('app');
 let D, me, partner, evMe, evPartner;
@@ -307,4 +308,6 @@ window.addEventListener('popstate', () => {
     history.pushState({ v: 'compare' }, '', withView('compare'));
     renderCompare();
   } else renderMain();
+})();
+
 })();
