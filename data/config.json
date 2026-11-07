@@ -1,0 +1,9 @@
+{
+ "_comment": "코드 수정 없이 바꿀 수 있는 설정값. 빈 문자열이면 해당 버튼은 '준비 중' 안내로 동작합니다.",
+ "siteUrl": "",
+ "notifyUrl": "",
+ "bookUrl": "",
+ "kakaoJsKey": "",
+ "excludeConsistencyHighInPairs": true,
+ "questionsPerPage": 10
+}

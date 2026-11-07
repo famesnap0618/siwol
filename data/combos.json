@@ -1,0 +1,1573 @@
+{
+ "version": 1,
+ "combos": [
+  {
+   "id": 1,
+   "a": "affection",
+   "aDir": "high",
+   "b": "reasoning",
+   "bDir": "high",
+   "priority": 4,
+   "parts": [
+    1,
+    2
+   ],
+   "text": "사랑도 설명도 넘치면 아이는 집을 '늘 다정하게 다 설명해 주는 곳'으로 기준 삼습니다. 밖에서 짧은 지시를 들었을 때 아이가 어떻게 반응하는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 2,
+   "a": "affection",
+   "aDir": "high",
+   "b": "reasoning",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    1,
+    2
+   ],
+   "text": "안아주기는 많은데 말로 풀어주는 건 적다면, 아이는 사랑은 느끼지만 '왜'를 배울 기회가 적습니다. 안 된다고 할 때 한 문장 이유를 붙이고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 3,
+   "a": "affection",
+   "aDir": "low",
+   "b": "reasoning",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    1,
+    2
+   ],
+   "text": "설명은 충분한데 따뜻한 표현이 적으면, 아이에게 부모가 '옳은 말을 하는 사람'으로만 남을 수 있습니다. 설명 뒤에 안아주는 순간이 있는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 4,
+   "a": "affection",
+   "aDir": "low",
+   "b": "reasoning",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    1,
+    2
+   ],
+   "text": "표현도 설명도 적으면 아이는 사랑도, 이유도 짐작으로 채워야 합니다. 하루 한 번 눈 맞추고 한 문장 설명하는 것부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 5,
+   "a": "affection",
+   "aDir": "high",
+   "b": "achievement",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    1,
+    3
+   ],
+   "text": "열렬한 사랑과 높은 기대가 함께 가면 아이는 기대에 못 미칠 때 사랑까지 잃을까 두려워할 수 있습니다. 못한 날의 반응이 잘한 날과 얼마나 다른지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 6,
+   "a": "affection",
+   "aDir": "high",
+   "b": "achievement",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    1,
+    3
+   ],
+   "text": "사랑은 넘치고 요구는 거의 없다면 아이는 편안하지만 '해냈다'는 경험이 적을 수 있습니다. 작은 도전을 끝까지 하게 두는 순간이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 7,
+   "a": "affection",
+   "aDir": "low",
+   "b": "achievement",
+   "bDir": "high",
+   "priority": 1,
+   "parts": [
+    1,
+    3
+   ],
+   "text": "잘했을 때만 반응이 오고 평소의 표현은 적다면, 아이는 '잘해야 사랑받는다'를 배울 수 있습니다. 아무것도 안 한 날의 반응을 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 8,
+   "a": "affection",
+   "aDir": "low",
+   "b": "achievement",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    1,
+    3
+   ],
+   "text": "표현도 기대도 적으면 아이는 자유롭다기보다 '나에게 관심이 없다'고 느낄 수 있습니다. 아이의 하루에 눈길을 주는 신호가 있는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 9,
+   "a": "affection",
+   "aDir": "high",
+   "b": "involvement",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    1,
+    4
+   ],
+   "text": "사랑도 손길도 많으면 아이는 안전하지만 스스로 해볼 틈이 좁아질 수 있습니다. 아이가 낑낑댈 때 3초 기다려주는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 10,
+   "a": "affection",
+   "aDir": "high",
+   "b": "involvement",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    1,
+    4
+   ],
+   "text": "사랑은 넘치는데 생활의 틀은 거의 잡아주지 않는다면, 아이는 사랑받지만 울타리가 없다고 느낄 수 있습니다. 꼭 지키는 생활 규칙 두어 개가 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 11,
+   "a": "affection",
+   "aDir": "low",
+   "b": "involvement",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    1,
+    4
+   ],
+   "text": "아이의 생활에는 많이 관여하는 반면, 따뜻한 표현은 상대적으로 부족하지 않은지 생각해보세요.",
+   "bookOriginal": true
+  },
+  {
+   "id": 12,
+   "a": "affection",
+   "aDir": "low",
+   "b": "involvement",
+   "bDir": "low",
+   "priority": 1,
+   "parts": [
+    1,
+    4
+   ],
+   "text": "표현도 개입도 적으면 아이는 방치된다고 느낄 수 있습니다. 가장 먼저 돌볼 조합 중 하나입니다. 하루 15분 집중 시간부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 13,
+   "a": "affection",
+   "aDir": "high",
+   "b": "discipline",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    1,
+    5
+   ],
+   "text": "사랑도 훈육도 강하면 아이는 혼란스럽습니다. 같은 부모가 가장 다정하다가 가장 무서워지니까요. 훈육의 강도가 아니라 감정의 진폭을 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 14,
+   "a": "affection",
+   "aDir": "high",
+   "b": "discipline",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    1,
+    5
+   ],
+   "text": "사랑은 넘치는데 '안 되는 것'은 거의 없다면, 집에서는 편해도 밖에서 부딪힐 수 있습니다. 사랑과 별개로 지키는 기준이 두세 개는 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 15,
+   "a": "affection",
+   "aDir": "low",
+   "b": "discipline",
+   "bDir": "high",
+   "priority": 1,
+   "parts": [
+    1,
+    5
+   ],
+   "text": "훈육은 분명한데 그 뒤를 이어주는 따뜻함이 적으면, 아이는 훈육을 질서가 아니라 공포로 받아들이기 쉽습니다. 혼낸 뒤에 관계를 다시 잇는 순간이 있는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 16,
+   "a": "affection",
+   "aDir": "low",
+   "b": "discipline",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    1,
+    5
+   ],
+   "text": "따뜻함도 기준도 적으면 아이는 어디에 서야 할지 모릅니다. 혼내지 않는 것과 안아주지 않는 것이 함께 가고 있지 않은지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 17,
+   "a": "affection",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    1,
+    6
+   ],
+   "text": "사랑이 넘치면서 확인도 많으면, 아이는 '사랑하니까 다 알아야 한다'는 메시지를 받습니다. 자랄수록 사적 영역을 넓혀주고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 18,
+   "a": "affection",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 4,
+   "parts": [
+    1,
+    6
+   ],
+   "text": "사랑은 넘치지만 아이의 세계는 잘 모른다면, 따뜻하되 아이의 친구·고민은 놓칠 수 있습니다. 아이가 요즘 무엇에 빠져 있는지 아는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 19,
+   "a": "affection",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    1,
+    6
+   ],
+   "text": "아이에 대한 관심이 따뜻한 표현으로 전달되기보다, 확인하고 관리하는 방식은 아닌지 돌아보세요.",
+   "bookOriginal": true
+  },
+  {
+   "id": 20,
+   "a": "affection",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 1,
+   "parts": [
+    1,
+    6
+   ],
+   "text": "표현도 관심도 적으면 아이는 '나는 중요하지 않다'고 느끼기 쉽습니다. 아이의 하루를 묻고 안아주는 것부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 21,
+   "a": "affection",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    1,
+    7
+   ],
+   "text": "열렬한 사랑과 무언의 기대가 함께 크면, 아이에게 사랑이 조건처럼 느껴질 수 있습니다. 잘한 날과 평범한 날의 온도 차를 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 22,
+   "a": "affection",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 4,
+   "parts": [
+    1,
+    7
+   ],
+   "text": "사랑은 넘치는데 '너는 할 수 있어'라는 신호는 적다면, 아이는 사랑받지만 믿어지지는 않는다고 느낄 수 있습니다. 아이가 해냈을 때 반응이 밋밋하지 않은지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 23,
+   "a": "affection",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    1,
+    7
+   ],
+   "text": "표현은 적은데 기대는 표정으로 새어 나가면, 아이는 사랑보다 아쉬움을 먼저 읽습니다. 결과를 받는 순간 내 표정을 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 24,
+   "a": "affection",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    1,
+    7
+   ],
+   "text": "표현도 기대도 적으면 아이는 부모의 마음을 읽을 단서가 거의 없습니다. 무언의 마음을 말로 바꿔주고 있는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 25,
+   "a": "affection",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 4,
+   "parts": [
+    1,
+    8
+   ],
+   "text": "사랑이 넘치고 규칙도 흔들림 없다면 든든한 집입니다. 다만 규칙이 아이의 사정보다 앞서지는 않는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 26,
+   "a": "affection",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    1,
+    8
+   ],
+   "text": "사랑은 넘치는데 반응이 그날그날 다르면, 아이는 사랑을 믿으면서도 예측은 못 합니다. 기분 좋은 날과 지친 날의 기준이 같은지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 27,
+   "a": "affection",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    1,
+    8
+   ],
+   "text": "규칙은 흔들림 없지만 따뜻함이 적으면 아이는 집을 '질서는 있지만 차가운 곳'으로 느낄 수 있습니다. 규칙을 지키는 순간에도 표정은 따뜻한지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 28,
+   "a": "affection",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 1,
+   "parts": [
+    1,
+    8
+   ],
+   "text": "아이의 안정감을 받치는 두 기둥, 따뜻함과 예측 가능성이 함께 흔들리고 있을 수 있습니다. 하루 15분 집중 시간과, 기분과 상관없이 지키는 규칙 두어 개부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 29,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "achievement",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    2,
+    3
+   ],
+   "text": "설명도 많고 기대도 높으면 아이는 '왜 더 잘해야 하는지'를 논리적으로 설득당하며 자랍니다. 아이가 반박할 틈이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 30,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "achievement",
+   "bDir": "low",
+   "priority": 4,
+   "parts": [
+    2,
+    3
+   ],
+   "text": "설명은 많은데 도전은 요구하지 않으면 아이는 말은 잘하지만 끝까지 해본 경험은 적을 수 있습니다. 설명 대신 해보게 두는 순간이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 31,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "achievement",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    2,
+    3
+   ],
+   "text": "설명 없이 성과만 요구하면 아이는 이유도 모른 채 잘해야 합니다. 왜 이걸 해야 하는지 한 문장이라도 붙이고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 32,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "achievement",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    2,
+    3
+   ],
+   "text": "설명도 기대도 적으면 아이는 집에서 '왜'를 배울 기회도, 해낼 기회도 적습니다. 아이의 질문에 답해주는 시간이 있는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 33,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "involvement",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    2,
+    4
+   ],
+   "text": "설명도 손길도 많으면 아이는 생각할 틈도, 해볼 틈도 부모가 채워줍니다. 아이가 스스로 답을 찾게 기다리는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 34,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "involvement",
+   "bDir": "low",
+   "priority": 4,
+   "parts": [
+    2,
+    4
+   ],
+   "text": "설명은 길지만 실제로 도와주는 손은 적다면, 말과 행동이 따로 갈 수 있습니다. 설명한 대로 함께 해보는 순간이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 35,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "involvement",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    2,
+    4
+   ],
+   "text": "설명 없이 대신 해주면 아이는 '어떻게'도 '왜'도 배우지 못합니다. 대신 해줄 때 한마디 설명을 붙이는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 36,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "involvement",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    2,
+    4
+   ],
+   "text": "설명도 개입도 적으면 아이는 혼자 알아서 해야 합니다. 아이가 막혔을 때 묻고 도움을 청할 수 있는 분위기인지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 37,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "discipline",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    2,
+    5
+   ],
+   "text": "길게 설명한 뒤 강하게 혼내면 아이는 설명을 '혼나기 전 단계'로 배웁니다. 설명과 훈육의 감정 온도를 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 38,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "discipline",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    2,
+    5
+   ],
+   "text": "설명은 길고 끝맺음이 없으면, 부모의 말이 결정이 아니라 협상의 시작이 되기 쉽습니다. 두 번 설명한 뒤에는 끝내고 있는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 39,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "discipline",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    2,
+    5
+   ],
+   "text": "아이에게 이유를 설명하기보다 제지와 지시가 먼저 나가고 있지는 않은지 살펴보세요.",
+   "bookOriginal": true
+  },
+  {
+   "id": 40,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "discipline",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    2,
+    5
+   ],
+   "text": "설명도 기준도 적으면 아이는 무엇이 왜 안 되는지 배울 기회가 없습니다. 안 되는 것 두세 개와 그 이유부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 41,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    2,
+    6
+   ],
+   "text": "설명도 확인도 많으면 아이는 늘 설득당하고 늘 지켜보는 느낌을 받을 수 있습니다. 아이 혼자 결정해보는 영역이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 42,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 4,
+   "parts": [
+    2,
+    6
+   ],
+   "text": "설명은 많지만 아이의 세계는 잘 모른다면, 대화가 부모의 말 위주일 수 있습니다. 아이 이야기를 듣는 시간이 말하는 시간보다 긴지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 43,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    2,
+    6
+   ],
+   "text": "확인은 많고 대화는 적으면, 아이는 행동을 고치기보다 들키지 않는 법을 배웁니다. 캐묻기 대신 함께 보고 이야기하는 시간이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 44,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    2,
+    6
+   ],
+   "text": "대화도 관심도 적으면 아이는 집에서 말할 이유를 잃습니다. 하루 한 번 콕 집어 묻는 것부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 45,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    2,
+    7
+   ],
+   "text": "설명은 친절한데 그 밑에 기대가 깔려 있으면, 아이는 설명을 '해야 한다는 압박'으로 읽습니다. 설명하는 말투에 아쉬움이 섞이지 않는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 46,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 4,
+   "parts": [
+    2,
+    7
+   ],
+   "text": "설명은 많은데 믿어준다는 신호가 적다면 아이는 늘 가르침받는 느낌일 수 있습니다. 설명 끝에 '넌 할 수 있어'를 붙이는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 47,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    2,
+    7
+   ],
+   "text": "말은 없는데 기대는 표정으로 전해지면, 아이는 무엇을 바라는지 짐작으로 맞춰야 합니다. 바라는 것을 말로 분명히 해주고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 48,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    2,
+    7
+   ],
+   "text": "말도 기대도 적으면 아이는 부모의 마음을 읽을 단서가 없습니다. 하루 한 문장이라도 마음을 말로 전하는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 49,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 4,
+   "parts": [
+    2,
+    8
+   ],
+   "text": "설명도 충분하고 규칙도 흔들리지 않는다면 아이가 납득하며 따르기 좋은 집입니다. 다만 아이가 타당한 이의를 냈을 때 규칙을 조정할 여지가 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 50,
+   "a": "reasoning",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    2,
+    8
+   ],
+   "text": "아이의 논리에 자주 설득당해 기준이 바뀐다면, 아이는 말로 규칙을 바꿀 수 있다고 배웁니다. 타당한 반박은 인정하되, 그 외엔 기준이 유지되는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 51,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    2,
+    8
+   ],
+   "text": "설명 없이 규칙만 엄격하면 아이는 외워서 따를 뿐 이해하지 못합니다. 규칙마다 이유 한 줄이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 52,
+   "a": "reasoning",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 1,
+   "parts": [
+    2,
+    8
+   ],
+   "text": "설명도 없고 기준도 바뀌면 아이는 규칙을 배울 길이 없습니다. 가장 먼저 돌볼 조합 중 하나입니다. 지킬 규칙 두 개와 그 이유부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 53,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "involvement",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    3,
+    4
+   ],
+   "text": "밀어주고 대신해주면 성취는 나오지만, 그것이 아이 자신의 것이 아닐 수 있습니다. 결과 가운데 아이가 스스로 한 몫이 얼마인지 생각해보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 54,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "involvement",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    3,
+    4
+   ],
+   "text": "기대는 높은데 도와주지는 않으면 아이는 혼자 감당해야 합니다. 요구하는 만큼 곁에서 함께하는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 55,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "involvement",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    3,
+    4
+   ],
+   "text": "기대는 낮은데 대신 해주는 건 많으면, 아이는 편하지만 해낼 기회가 없습니다. 아이가 혼자 끝내보는 일이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 56,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "involvement",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    3,
+    4
+   ],
+   "text": "기대도 개입도 적으면 아이는 도전할 이유도 도와줄 손도 없습니다. 작은 과제를 함께 끝내보는 것부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 57,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "discipline",
+   "bDir": "high",
+   "priority": 1,
+   "parts": [
+    3,
+    5
+   ],
+   "text": "성과를 요구하고 못하면 혼내면, 아이에게 공부와 성취가 공포와 묶입니다. 결과가 나올 때 훈육이 따라붙지 않는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 58,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "discipline",
+   "bDir": "low",
+   "priority": 4,
+   "parts": [
+    3,
+    5
+   ],
+   "text": "기대는 높은데 기준은 느슨하면 아이는 '잘하라'는 말은 듣지만 책임은 배우지 않습니다. 약속한 것을 끝내지 않았을 때 결과가 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 59,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "discipline",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    3,
+    5
+   ],
+   "text": "기대는 낮고 훈육은 강하면 아이는 잘해도 반응이 없고 잘못하면 크게 혼납니다. 혼내는 횟수와 인정하는 횟수를 견주어 보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 60,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "discipline",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    3,
+    5
+   ],
+   "text": "기대도 기준도 낮으면 아이는 편하지만 노력과 책임을 배울 자리가 적습니다. 작은 역할 하나를 맡기고 끝까지 하게 하는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 61,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    3,
+    6
+   ],
+   "text": "성과를 요구하며 지켜보기까지 하면, 아이는 감시 아래 성적을 내야 합니다. 공부 시간에 확인하는 횟수를 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 62,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    3,
+    6
+   ],
+   "text": "기대는 높은데 아이의 상태는 잘 모른다면, 결과만 보고 과정은 놓칠 수 있습니다. 성적표 말고 아이의 표정을 보고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 63,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    3,
+    6
+   ],
+   "text": "기대는 낮은데 확인은 많으면, 아이는 '믿지도 않고 바라지도 않는다'고 느낄 수 있습니다. 확인을 줄이고 관심을 말로 전하는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 64,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    3,
+    6
+   ],
+   "text": "기대도 관심도 적으면 아이는 자기가 무엇을 하는지 아무도 모른다고 느낄 수 있습니다. 아이의 하루를 묻는 것부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 65,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    3,
+    7
+   ],
+   "text": "말로 드러내는 기대뿐 아니라 표정이나 반응으로도 아이에게 부담을 주고 있지는 않은지 살펴보세요.",
+   "bookOriginal": true
+  },
+  {
+   "id": 66,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 4,
+   "parts": [
+    3,
+    7
+   ],
+   "text": "요구는 분명한데 믿어주는 신호가 없으면 아이는 압박만 받고 응원은 못 받습니다. 요구 뒤에 '넌 할 수 있어'가 따라가는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 67,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    3,
+    7
+   ],
+   "text": "말로는 괜찮다면서 표정으로 아쉬워하면 아이는 말보다 표정을 믿습니다. '상관없어'가 진심인지 스스로 물어보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 68,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    3,
+    7
+   ],
+   "text": "기대도 요구도 적으면 아이는 자유롭다기보다 '관심이 없다'고 느낄 수 있습니다. 무언의 응원을 말로 바꿔주고 있는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 69,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    3,
+    8
+   ],
+   "text": "기대도 높고 규칙도 엄격하면 아이는 빈틈없이 잘해야 합니다. 쉬어가도 되는 날이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 70,
+   "a": "achievement",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    3,
+    8
+   ],
+   "text": "기대는 높은데 기준이 오락가락하면 아이는 무엇을 얼마나 해야 하는지 모릅니다. 요구하는 기준이 날마다 같은지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 71,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 4,
+   "parts": [
+    3,
+    8
+   ],
+   "text": "기대는 낮고 규칙은 엄격하면 아이는 '하지 말 것'은 많고 '해볼 것'은 적습니다. 금지 규칙과 도전 과제의 비율을 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 72,
+   "a": "achievement",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    3,
+    8
+   ],
+   "text": "기대도 기준도 느슨하면 아이는 방향도 울타리도 없습니다. 꼭 지키는 것 두 개부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 73,
+   "a": "involvement",
+   "aDir": "high",
+   "b": "discipline",
+   "bDir": "high",
+   "priority": 1,
+   "parts": [
+    4,
+    5
+   ],
+   "text": "대신 해주고 안 되면 혼내면, 아이는 스스로 할 기회도 없이 책임만 집니다. 혼내기 전에 아이가 직접 해볼 기회를 줬는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 74,
+   "a": "involvement",
+   "aDir": "high",
+   "b": "discipline",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    4,
+    5
+   ],
+   "text": "다 해주고 기준은 없으면 아이는 편하지만 스스로 조절하는 힘이 자라지 않습니다. 아이 몫으로 남겨두는 일이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 75,
+   "a": "involvement",
+   "aDir": "low",
+   "b": "discipline",
+   "bDir": "high",
+   "priority": 1,
+   "parts": [
+    4,
+    5
+   ],
+   "text": "도와주지 않으면서 잘못하면 혼내면, 아이는 혼자 하다 틀리고 혼나는 경험을 반복합니다. 혼내기 전에 알려줬는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 76,
+   "a": "involvement",
+   "aDir": "low",
+   "b": "discipline",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    4,
+    5
+   ],
+   "text": "개입도 기준도 적으면 아이는 자유롭지만 울타리가 없습니다. 안전과 관련된 최소한의 기준은 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 77,
+   "a": "involvement",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    4,
+    6
+   ],
+   "text": "도와주는 손과 지켜보는 눈이 둘 다 많으면, 아이가 스스로 해보고 실수할 공간이 양쪽에서 좁아집니다. 아이 나이에 맞게 둘 다 줄여갈 때는 아닌지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 78,
+   "a": "involvement",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    4,
+    6
+   ],
+   "text": "손은 많이 가는데 아이의 세계는 잘 모른다면, 생활은 챙기지만 마음은 놓칠 수 있습니다. 아이가 요즘 무슨 생각을 하는지 아는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 79,
+   "a": "involvement",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    4,
+    6
+   ],
+   "text": "도와주지는 않으면서 지켜보기만 하면 아이는 '감시만 받는다'고 느낄 수 있습니다. 확인한 뒤에 실제로 도와주는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 80,
+   "a": "involvement",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    4,
+    6
+   ],
+   "text": "자유를 주고 있다고 느끼지만, 아이는 울타리가 없다고 느낄 수 있습니다. 안전에 관한 최소한의 파악과 개입은 있는지 돌아보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 81,
+   "a": "involvement",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    4,
+    7
+   ],
+   "text": "대신 해주면서 기대까지 높으면 아이는 '내가 하면 부족하다'는 메시지를 받습니다. 아이가 한 결과를 고쳐주지 않고 두는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 82,
+   "a": "involvement",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    4,
+    7
+   ],
+   "text": "손길은 많은데 믿어준다는 신호가 없으면 아이는 보살핌은 받지만 신뢰는 못 받습니다. '네가 해봐'라고 말하는 순간이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 83,
+   "a": "involvement",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    4,
+    7
+   ],
+   "text": "도와주지 않으면서 기대만 표정으로 전하면 아이는 혼자 부담을 집니다. 기대하는 만큼 곁에 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 84,
+   "a": "involvement",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    4,
+    7
+   ],
+   "text": "개입도 기대도 적으면 아이는 혼자 하되 응원은 없습니다. 아이가 해낸 것을 알아봐 주는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 85,
+   "a": "involvement",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    4,
+    8
+   ],
+   "text": "손길도 많고 규칙도 엄격하면 아이가 스스로 선택할 영역이 좁습니다. 아이가 고를 수 있는 것이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 86,
+   "a": "involvement",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    4,
+    8
+   ],
+   "text": "많이 도와주지만 기준은 그날그날 다르면 아이는 부모에게 기대면서도 예측은 못 합니다. 도와주는 방식이 날마다 같은지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 87,
+   "a": "involvement",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    4,
+    8
+   ],
+   "text": "도와주지 않으면서 규칙만 엄격하면 아이는 혼자 하고 혼자 지켜야 합니다. 규칙을 지키도록 돕는 손이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 88,
+   "a": "involvement",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 1,
+   "parts": [
+    4,
+    8
+   ],
+   "text": "개입도 일관성도 적으면 아이는 구조 없이 자랍니다. 가장 먼저 돌볼 조합 중 하나입니다. 매일 같은 시간에 하는 일 하나부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 89,
+   "a": "discipline",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 1,
+   "parts": [
+    5,
+    6
+   ],
+   "text": "강하게 혼내고 촘촘히 지켜보면 아이는 들키지 않는 법부터 배웁니다. 아이가 부모에게 먼저 말해오는 일이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 90,
+   "a": "discipline",
+   "aDir": "high",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    5,
+    6
+   ],
+   "text": "훈육은 강한데 아이의 상태는 잘 모른다면, 이유를 모른 채 혼내고 있을 수 있습니다. 혼내기 전에 무슨 일이었는지 묻는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 91,
+   "a": "discipline",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    5,
+    6
+   ],
+   "text": "혼내지는 않으면서 확인은 많으면 아이는 기준은 없고 감시만 있다고 느낍니다. 확인하는 에너지를 기준 세우기로 돌릴 수 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 92,
+   "a": "discipline",
+   "aDir": "low",
+   "b": "monitoring",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    5,
+    6
+   ],
+   "text": "기준도 관심도 적으면 아이는 무엇이든 해도 아무 일이 없다고 배웁니다. 안전에 관한 기준과 파악부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 93,
+   "a": "discipline",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 2,
+   "parts": [
+    5,
+    7
+   ],
+   "text": "혼내는 데다 기대까지 표정으로 누르면 아이는 늘 평가받는 느낌입니다. 아이가 긴장하는 순간이 언제인지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 94,
+   "a": "discipline",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    5,
+    7
+   ],
+   "text": "혼내기는 하는데 믿어주는 신호가 없으면 아이는 야단만 기억합니다. 잘했을 때 알아봐 주는 횟수를 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 95,
+   "a": "discipline",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    5,
+    7
+   ],
+   "text": "혼내지 않지만 아쉬움은 표정으로 새어 나가면, 아이는 혼나지 않아도 눈치를 봅니다. 말과 표정이 일치하는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 96,
+   "a": "discipline",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    5,
+    7
+   ],
+   "text": "기준도 기대도 없으면 아이는 편하지만 방향이 없습니다. 바라는 것을 말로, 안 되는 것을 기준으로 전하는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 97,
+   "a": "discipline",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    5,
+    8
+   ],
+   "text": "훈육이 강하고 규칙도 예외 없으면 아이는 안전하지만 숨 쉬는 틈이 좁습니다. 아플 때나 특별한 날의 예외가 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 98,
+   "a": "discipline",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 1,
+   "parts": [
+    5,
+    8
+   ],
+   "text": "같은 잘못이 그날 기분에 따라 다르게 혼나면, 아이는 규칙이 아니라 부모의 기분을 읽게 됩니다. 혼내는 강도보다 '언제나 같은 반응'이 지켜지고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 99,
+   "a": "discipline",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 4,
+   "parts": [
+    5,
+    8
+   ],
+   "text": "혼내지 않지만 규칙은 흔들림 없다면 잘 가고 있는 조합입니다. 다만 규칙이 안 지켜졌을 때 결과가 따르는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 100,
+   "a": "discipline",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    5,
+    8
+   ],
+   "text": "'이번 한 번만'이 반복되면 부모의 말이 무게를 잃습니다. 규칙을 늘리기보다, 적은 규칙을 예외 없이 지키고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 101,
+   "a": "monitoring",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    6,
+    7
+   ],
+   "text": "확인도 많고 기대도 높으면 아이는 지켜보는 눈과 바라는 눈을 동시에 느낍니다. 아이가 혼자 있을 때 편안한지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 102,
+   "a": "monitoring",
+   "aDir": "high",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 3,
+   "parts": [
+    6,
+    7
+   ],
+   "text": "확인은 많은데 믿어준다는 신호가 없으면 아이는 감시는 받고 응원은 못 받습니다. 확인 대신 응원의 말을 쓰는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 103,
+   "a": "monitoring",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    6,
+    7
+   ],
+   "text": "아이의 세계는 잘 모르면서 기대만 전해지면, 아이는 이해받지 못한 채 요구받는다고 느낍니다. 기대하기 전에 아이를 알고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 104,
+   "a": "monitoring",
+   "aDir": "low",
+   "b": "implicit",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    6,
+    7
+   ],
+   "text": "관심도 기대도 적으면 아이는 '나는 중요하지 않다'고 느끼기 쉽습니다. 아이의 하루에 눈길을 주는 신호부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 105,
+   "a": "monitoring",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    6,
+    8
+   ],
+   "text": "확인도 많고 규칙도 엄격하면 아이의 사적 영역이 좁습니다. 자랄수록 둘 다 풀어주고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 106,
+   "a": "monitoring",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    6,
+    8
+   ],
+   "text": "확인은 많은데 기준은 오락가락하면 아이는 감시받으면서 예측도 못 합니다. 확인하는 이유가 아이의 행동인지 내 불안인지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 107,
+   "a": "monitoring",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    6,
+    8
+   ],
+   "text": "관심은 적은데 규칙은 엄격하면 아이는 규칙은 알지만 부모가 자기를 모른다고 느낍니다. 규칙 바깥의 대화가 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 108,
+   "a": "monitoring",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 1,
+   "parts": [
+    6,
+    8
+   ],
+   "text": "관심도 기준도 적으면 아이는 울타리 없이 혼자입니다. 안전에 관한 최소한의 파악과 규칙부터 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 109,
+   "a": "implicit",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    7,
+    8
+   ],
+   "text": "기대도 높고 규칙도 엄격하면 아이는 틀 안에서 늘 잘해야 합니다. 못해도 괜찮은 날이 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 110,
+   "a": "implicit",
+   "aDir": "high",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    7,
+    8
+   ],
+   "text": "기대는 표정으로 전해지는데 기준은 오락가락하면 아이는 무엇을 맞춰야 할지 모릅니다. 바라는 것을 말로 분명히 하고 있는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 111,
+   "a": "implicit",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "high",
+   "priority": 3,
+   "parts": [
+    7,
+    8
+   ],
+   "text": "기대는 적고 규칙은 엄격하면 아이는 지켜야 할 것은 알지만 응원은 못 받습니다. 규칙을 지켰을 때 알아봐 주는지 살펴보세요.",
+   "bookOriginal": false
+  },
+  {
+   "id": 112,
+   "a": "implicit",
+   "aDir": "low",
+   "b": "consistency",
+   "bDir": "low",
+   "priority": 2,
+   "parts": [
+    7,
+    8
+   ],
+   "text": "기대도 기준도 없으면 아이는 방향도 울타리도 없습니다. 바라는 것 하나와 지킬 것 하나부터 살펴보세요.",
+   "bookOriginal": false
+  }
+ ]
+}
